@@ -30,6 +30,8 @@ public class QObtn extends EntityPathBase<Obtn> {
 
     public final StringPath obtnMk = createString("obtnMk");
 
+    public final NumberPath<Integer> obtnMony = createNumber("obtnMony", Integer.class);
+
     public final StringPath obtnNm = createString("obtnNm");
 
     public final DateTimePath<java.time.LocalDateTime> updateDate = createDateTime("updateDate", java.time.LocalDateTime.class);

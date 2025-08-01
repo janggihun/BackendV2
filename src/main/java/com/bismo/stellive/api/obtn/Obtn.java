@@ -16,16 +16,17 @@ public class Obtn { //수주테이블
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;                                        //pk
+    private Long id;                                            //pk
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "obtn")
-    private List<ObtnDtl> obtnDtl;                          // 수주디테일리스트
-    private String obtnNm;                                    //수주번호
-    private String obtnMk;                                  //비고
+    private List<ObtnDtl> obtnDtl;                              // 수주디테일리스트
+    private String obtnNm;                                      //수주번호
+    private Integer obtnMony;                                   //수주금액
+    private String obtnMk;                                      //비고
 
-    private String inputId;                                //작성자
-    private LocalDateTime inputDate;                        //작정날짜
-    private String updateId;                               //변경한사람
-    private LocalDateTime updateDate;                       //변경날짜
+    private String inputId;                                     //작성자
+    private LocalDateTime inputDate;                            //작정날짜
+    private String updateId;                                    //변경한사람
+    private LocalDateTime updateDate;                           //변경날짜
 
 
 
