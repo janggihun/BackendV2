@@ -1,0 +1,19 @@
+package com.bismo.stellive.api.obtnDtl.dto;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ObtnDtlResponse {
+
+
+    //
+    private long id;//pk
+
+
+
+}
