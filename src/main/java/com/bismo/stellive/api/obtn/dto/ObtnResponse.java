@@ -12,7 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ObtnResponse {
 
-    private Long id;                        //pk
-    private String inputId;                 //작성자
-    private LocalDateTime inputDate;        //작성시간
+    private Long id;                    //pk
+    private String obtnNm;              //수주번호
+    private String inputId;             //작성자
+    private LocalDateTime inputDate;    //작성날짜
+    private String obtnMk;              //비고
+    private String updateId;            //최종수정자
+    private LocalDateTime updateDate;   //최종수정날짜
 }

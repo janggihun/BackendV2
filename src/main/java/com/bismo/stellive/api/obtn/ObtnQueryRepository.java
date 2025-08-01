@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 import static com.bismo.stellive.api.obtn.QObtn.obtn;
 import static com.bismo.stellive.api.obtnDtl.QObtnDtl.obtnDtl;
 
@@ -23,8 +24,11 @@ public class ObtnQueryRepository {
                 .select(Projections.fields(ObtnResponse.class,
                         obtn.id,
                         obtn.obtnNm,
+                        obtn.obtnMk,
                         obtn.inputId,
-                        obtn.inputDate
+                        obtn.inputDate,
+                        obtn.updateId,
+                        obtn.updateDate
                         ))
                 .from(obtn)
                 .leftJoin(obtn.obtnDtl, obtnDtl)
@@ -33,5 +37,6 @@ public class ObtnQueryRepository {
 //                .limit(10)
                 .fetch();
     }
+
 
 }

@@ -36,7 +36,10 @@ public class ObtnApiController {
                 Obtn obtn = new Obtn();
                 obtn.SettingFirstSave(optnRequset);
                 try {
-                    obtnJpaRepository.save(obtn);
+                   Obtn returnObtn =  obtnJpaRepository.save(obtn);
+                   //수주이름 생성하기
+                    returnObtn.createObtnNm(); //entity 변경이므로 업데이트 됨
+
                     return CommonResponse.success("수주내용이 저장 되었습니다.");
                 } catch (Exception e) {
                     CommonResponse.error("수주저장 실패");
