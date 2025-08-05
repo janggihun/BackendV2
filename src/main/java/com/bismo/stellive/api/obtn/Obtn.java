@@ -1,5 +1,6 @@
 package com.bismo.stellive.api.obtn;
 
+import com.bismo.stellive.api.comp.Company;
 import com.bismo.stellive.api.obtn.dto.OptnRequset;
 import com.bismo.stellive.api.obtnDtl.ObtnDtl;
 import jakarta.persistence.*;
@@ -19,9 +20,17 @@ public class Obtn { //수주테이블
     private Long id;                                            //pk
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "obtn")
     private List<ObtnDtl> obtnDtl;                              // 수주디테일리스트
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private Company company;                                    //회사 pk
+
+
+
     private String obtnNm;                                      //수주번호
-    private Integer obtnMony;                                   //수주금액
+    private Integer mony;                                       //수주금액
     private String obtnMk;                                      //비고
+
 
     private String inputId;                                     //작성자
     private LocalDateTime inputDate;                            //작정날짜
@@ -36,7 +45,7 @@ public class Obtn { //수주테이블
         this.obtnDtl = new ArrayList<>();
         this.obtnNm = optnRequset.getObtnNm();
         this.obtnMk = optnRequset.getObtnMk();
-
+        this.mony = optnRequset.getMony();
         this.inputId = optnRequset.getUserId();
         this.updateId = optnRequset.getUserId();
         this.inputDate =LocalDateTime.now();

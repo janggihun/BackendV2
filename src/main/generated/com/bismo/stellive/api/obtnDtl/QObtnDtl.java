@@ -46,7 +46,7 @@ public class QObtnDtl extends EntityPathBase<ObtnDtl> {
 
     public QObtnDtl(Class<? extends ObtnDtl> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.obtn = inits.isInitialized("obtn") ? new com.bismo.stellive.api.obtn.QObtn(forProperty("obtn")) : null;
+        this.obtn = inits.isInitialized("obtn") ? new com.bismo.stellive.api.obtn.QObtn(forProperty("obtn"), inits.get("obtn")) : null;
     }
 
 }

@@ -19,4 +19,7 @@ public class ObtnResponse {
     private String obtnMk;              //비고
     private String updateId;            //최종수정자
     private LocalDateTime updateDate;   //최종수정날짜
+
+    private Integer mony;               //수주금액
+    private String compNm;              //회사이름
 }

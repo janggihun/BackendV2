@@ -18,7 +18,11 @@ public class QObtn extends EntityPathBase<Obtn> {
 
     private static final long serialVersionUID = -1552806547L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QObtn obtn = new QObtn("obtn");
+
+    public final com.bismo.stellive.api.comp.QCompany company;
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -26,11 +30,11 @@ public class QObtn extends EntityPathBase<Obtn> {
 
     public final StringPath inputId = createString("inputId");
 
+    public final NumberPath<Integer> mony = createNumber("mony", Integer.class);
+
     public final ListPath<com.bismo.stellive.api.obtnDtl.ObtnDtl, com.bismo.stellive.api.obtnDtl.QObtnDtl> obtnDtl = this.<com.bismo.stellive.api.obtnDtl.ObtnDtl, com.bismo.stellive.api.obtnDtl.QObtnDtl>createList("obtnDtl", com.bismo.stellive.api.obtnDtl.ObtnDtl.class, com.bismo.stellive.api.obtnDtl.QObtnDtl.class, PathInits.DIRECT2);
 
     public final StringPath obtnMk = createString("obtnMk");
-
-    public final NumberPath<Integer> obtnMony = createNumber("obtnMony", Integer.class);
 
     public final StringPath obtnNm = createString("obtnNm");
 
@@ -39,15 +43,24 @@ public class QObtn extends EntityPathBase<Obtn> {
     public final StringPath updateId = createString("updateId");
 
     public QObtn(String variable) {
-        super(Obtn.class, forVariable(variable));
+        this(Obtn.class, forVariable(variable), INITS);
     }
 
     public QObtn(Path<? extends Obtn> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QObtn(PathMetadata metadata) {
-        super(Obtn.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QObtn(PathMetadata metadata, PathInits inits) {
+        this(Obtn.class, metadata, inits);
+    }
+
+    public QObtn(Class<? extends Obtn> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.company = inits.isInitialized("company") ? new com.bismo.stellive.api.comp.QCompany(forProperty("company")) : null;
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 import static com.bismo.stellive.api.obtn.QObtn.obtn;
 import static com.bismo.stellive.api.obtnDtl.QObtnDtl.obtnDtl;
-
+import static com.bismo.stellive.api.comp.QCompany.company;
 @Repository
 @RequiredArgsConstructor
 public class ObtnQueryRepository {
@@ -28,10 +28,13 @@ public class ObtnQueryRepository {
                         obtn.inputId,
                         obtn.inputDate,
                         obtn.updateId,
-                        obtn.updateDate
+                        obtn.updateDate,
+                        obtn.mony,
+                        company.compNm
                         ))
                 .from(obtn)
                 .leftJoin(obtn.obtnDtl, obtnDtl)
+                .leftJoin(obtn.company)
                 .orderBy(obtn.id.desc())
 //                .where()
 //                .limit(10)

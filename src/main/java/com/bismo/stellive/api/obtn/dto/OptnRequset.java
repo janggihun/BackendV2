@@ -17,8 +17,8 @@ public class OptnRequset {
     private String obtnNm;                                  //수주번호
     private String obtnMk;                                  //비고
     private String userId;                                  //접속자
-
-
-
+    private Integer mony;                                   //금액
+    private String  plceId;                                   //장소
+    private String  compId;                                   //회사명
 
 }
