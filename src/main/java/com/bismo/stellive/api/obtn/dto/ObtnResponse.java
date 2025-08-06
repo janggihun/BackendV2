@@ -22,4 +22,5 @@ public class ObtnResponse {
 
     private Integer mony;               //수주금액
     private String compNm;              //회사이름
+    private String compAdr;             //회사 주소
 }

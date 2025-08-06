@@ -30,7 +30,8 @@ public class ObtnQueryRepository {
                         obtn.updateId,
                         obtn.updateDate,
                         obtn.mony,
-                        company.compNm
+                        company.compNm,
+                        company.compAdr
                         ))
                 .from(obtn)
                 .leftJoin(obtn.obtnDtl, obtnDtl)
