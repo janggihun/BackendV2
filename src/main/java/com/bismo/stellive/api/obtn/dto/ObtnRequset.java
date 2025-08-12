@@ -1,17 +1,14 @@
 package com.bismo.stellive.api.obtn.dto;
 
-import com.bismo.stellive.api.obtn.Obtn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OptnRequset {
+public class ObtnRequset {
 
     private Long id;                                        //pk
     private String obtnNm;                                  //수주번호
@@ -21,4 +18,6 @@ public class OptnRequset {
     private String  plceId;                                   //장소
     private String  compId;                                   //회사명
 
+    private String  startDt;            //시작날짜
+    private String  endDt;              //끝날짜
 }

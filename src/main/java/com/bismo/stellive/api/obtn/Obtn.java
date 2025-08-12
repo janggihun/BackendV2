@@ -1,7 +1,7 @@
 package com.bismo.stellive.api.obtn;
 
 import com.bismo.stellive.api.comp.Company;
-import com.bismo.stellive.api.obtn.dto.OptnRequset;
+import com.bismo.stellive.api.obtn.dto.ObtnRequset;
 import com.bismo.stellive.api.obtnDtl.ObtnDtl;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -40,14 +40,14 @@ public class Obtn { //수주테이블
 
 
 
-    public void SettingFirstSave(OptnRequset optnRequset) {
+    public void SettingFirstSave(ObtnRequset obtnRequset) {
 
         this.obtnDtl = new ArrayList<>();
-        this.obtnNm = optnRequset.getObtnNm();
-        this.obtnMk = optnRequset.getObtnMk();
-        this.mony = optnRequset.getMony();
-        this.inputId = optnRequset.getUserId();
-        this.updateId = optnRequset.getUserId();
+        this.obtnNm = obtnRequset.getObtnNm();
+        this.obtnMk = obtnRequset.getObtnMk();
+        this.mony = obtnRequset.getMony();
+        this.inputId = obtnRequset.getUserId();
+        this.updateId = obtnRequset.getUserId();
         this.inputDate =LocalDateTime.now();
         this.updateDate =LocalDateTime.now();
 
