@@ -15,8 +15,8 @@ public class ObtnRequset {
     private String obtnMk;                                  //비고
     private String userId;                                  //접속자
     private Integer mony;                                   //금액
-    private String  plceId;                                   //장소
-    private String  compId;                                   //회사명
+    private Long  plceId;                                   //장소
+    private Long  compId;                                   //회사명
 
     private String  startDt;            //시작날짜
     private String  endDt;              //끝날짜

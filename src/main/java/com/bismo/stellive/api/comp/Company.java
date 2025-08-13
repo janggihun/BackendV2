@@ -20,4 +20,7 @@ public class Company {
     private String compAdr;         //주소
 
 
+    public void inputId(Long compId) {
+        this.id = compId;
+    }
 }

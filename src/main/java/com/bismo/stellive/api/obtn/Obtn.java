@@ -51,6 +51,9 @@ public class Obtn { //수주테이블
         this.inputDate =LocalDateTime.now();
         this.updateDate =LocalDateTime.now();
 
+        Company company1 = new Company();
+        company1.inputId(obtnRequset.getCompId());
+        company = company1;
     }
 
     public void createObtnNm() {
