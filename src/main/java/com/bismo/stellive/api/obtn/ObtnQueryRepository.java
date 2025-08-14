@@ -27,7 +27,7 @@ public class ObtnQueryRepository {
 
     public List<ObtnResponse> read(ObtnRequset obtnRequset) {
 
-        //랜덤으로 가지고옴
+
         return queryFactory
                 .select(Projections.fields(ObtnResponse.class,
                         obtn.id,
@@ -47,7 +47,8 @@ public class ObtnQueryRepository {
                 .orderBy(obtn.id.desc())
                 .where(
                         obtnNmContains(obtnRequset.getObtnNm()),
-                        obtnDtCompare(obtnRequset.getStartDt(), obtnRequset.getEndDt())
+                        obtnDtCompare(obtnRequset.getStartDt(), obtnRequset.getEndDt()),
+                        obtn.delYn.eq(Obtn.DelYn.Y)
                 )
 //                .limit(10)
                 .fetch();
@@ -92,5 +93,32 @@ public class ObtnQueryRepository {
         } else {
             return null;
         }
+    }
+
+    public List<ObtnResponse> countObtnByMonth(ObtnRequset obtnRequset) {
+        return queryFactory
+                .select(Projections.fields(ObtnResponse.class,
+                        obtn.id,
+                        obtn.obtnNm,
+                        obtn.obtnMk,
+                        obtn.inputId,
+                        obtn.inputDate,
+                        obtn.updateId,
+                        obtn.updateDate,
+                        obtn.mony,
+                        company.compNm,
+                        company.compAdr
+                ))
+                .from(obtn)
+                .leftJoin(obtn.obtnDtl, obtnDtl)
+                .leftJoin(obtn.company)
+                .orderBy(obtn.id.desc())
+                .where(
+//                        obtnNmContains(obtnRequset.getObtnNm()),
+                        obtnDtCompare(obtnRequset.getStartDt(), obtnRequset.getEndDt()),
+                        obtn.delYn.eq(Obtn.DelYn.Y)
+                )
+//                .limit(10)
+                .fetch();
     }
 }

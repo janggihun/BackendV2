@@ -24,6 +24,8 @@ public class QObtn extends EntityPathBase<Obtn> {
 
     public final com.bismo.stellive.api.comp.QCompany company;
 
+    public final EnumPath<Obtn.DelYn> delYn = createEnum("delYn", Obtn.DelYn.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final DateTimePath<java.time.LocalDateTime> inputDate = createDateTime("inputDate", java.time.LocalDateTime.class);

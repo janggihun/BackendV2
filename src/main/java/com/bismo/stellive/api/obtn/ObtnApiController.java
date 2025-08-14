@@ -56,5 +56,14 @@ public class ObtnApiController {
 
         return CommonResponse.success(returnList);
     };
+    @GetMapping("/count-Obtn-By-Month")
+    public CommonResponse countObtnByMonth(@ModelAttribute ObtnRequset obtnRequset) {
 
+        //시작날짜와 끝날짜를 취득
+        obtnRequset.createStartDtEndDtBySelectDt();
+
+        List<ObtnResponse> returnList = obtnQueryRepository.countObtnByMonth(obtnRequset);
+
+        return CommonResponse.success(returnList);
+    };
 }

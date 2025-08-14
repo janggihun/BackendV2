@@ -15,6 +15,10 @@ import java.util.List;
 @Getter
 public class Obtn { //수주테이블
 
+    public enum DelYn {
+        Y, N
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;                                            //pk
@@ -37,6 +41,11 @@ public class Obtn { //수주테이블
     private String updateId;                                    //변경한사람
     private LocalDateTime updateDate;                           //변경날짜
 
+    // Enum 컬럼 매핑
+    @Enumerated(EnumType.STRING) // DB에 'Y', 'N' 문자열로 저장
+    @Column(name = "del_yn", nullable = false)
+    private DelYn delYn;                                  //취소여부
+
 
 
 
@@ -50,6 +59,7 @@ public class Obtn { //수주테이블
         this.updateId = obtnRequset.getUserId();
         this.inputDate =LocalDateTime.now();
         this.updateDate =LocalDateTime.now();
+        this.delYn = DelYn.Y;
 
         Company company1 = new Company();
         company1.inputId(obtnRequset.getCompId());
