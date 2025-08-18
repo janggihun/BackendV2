@@ -5,6 +5,7 @@ import com.bismo.stellive.api.obtn.dto.ObtnRequset;
 import com.bismo.stellive.api.obtnDtl.ObtnDtl;
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDateTime;
 import java.time.Year;
@@ -61,6 +62,20 @@ public class Obtn { //수주테이블
         String prefix = String.format("%02dA", year % 100); // "25A"
         String formattedId = String.format("%06d", id);     // "000001"
         this.obtnNm = prefix + "-" + formattedId;           // "25A-000001"
+
+    }
+
+    public void update(ObtnRequset obtnRequset) {
+        this.obtnNm = StringUtils.defaultString(obtnRequset.getObtnNm());
+        this.obtnMk = StringUtils.defaultString(obtnRequset.getObtnMk()) ;
+        this.mony = obtnRequset.getMony();
+
+        this.updateDate = LocalDateTime.now();
+        this.updateId =obtnRequset.getUserId();
+
+        Company company1 = new Company();
+        company1.inputId(obtnRequset.getCompId());
+        this.company = company1;
 
     }
 }

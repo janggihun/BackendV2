@@ -1,6 +1,7 @@
 package com.bismo.stellive.api.obtn.dto;
 
 
+import com.bismo.stellive.api.comp.Company;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,10 @@ public class ObtnResponse {
     private LocalDateTime updateDate;   //최종수정날짜
 
     private Integer mony;               //수주금액
-    private String compNm;              //회사이름
-    private String compAdr;             //회사 주소
+
+    private Long compId;
+    private String compNm;
+    private String compAdr;
+
+
 }

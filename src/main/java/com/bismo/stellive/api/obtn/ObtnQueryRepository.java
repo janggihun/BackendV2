@@ -38,6 +38,7 @@ public class ObtnQueryRepository {
                         obtn.updateId,
                         obtn.updateDate,
                         obtn.mony,
+                        company.id.as("compId"),
                         company.compNm,
                         company.compAdr
                         ))
@@ -92,5 +93,33 @@ public class ObtnQueryRepository {
         } else {
             return null;
         }
+    }
+
+    public ObtnResponse obtnInfo(ObtnRequset obtnRequset) {
+
+        //랜덤으로 가지고옴
+        return queryFactory
+                .select(Projections.fields(ObtnResponse.class,
+                        obtn.id,
+                        obtn.obtnNm,
+                        obtn.obtnMk,
+                        obtn.inputId,
+                        obtn.inputDate,
+                        obtn.updateId,
+                        obtn.updateDate,
+                        obtn.mony,
+                        company.id.as("compId"),
+                        company.compNm,
+                        company.compAdr
+                ))
+                .from(obtn)
+                .leftJoin(obtn.obtnDtl, obtnDtl)
+                .leftJoin(obtn.company)
+                .where(
+                        obtn.id.eq(obtnRequset.getId())
+                )
+//                .limit(1)
+                .fetchOne();
+
     }
 }

@@ -20,6 +20,9 @@ import java.util.List;
 @RequestMapping("/api/v1/obtn")
 public class ObtnApiController {
 
+    private final ObtnService obtnService;
+
+
     private final ObtnJpaRepository obtnJpaRepository;
     private final ObtnQueryRepository obtnQueryRepository;
 
@@ -56,5 +59,20 @@ public class ObtnApiController {
 
         return CommonResponse.success(returnList);
     };
+    @GetMapping("/obtn-info")
+    public CommonResponse obtnInfo(@ModelAttribute ObtnRequset obtnRequset) {
+        log.info("/obtn-info : {}", obtnRequset);
+        ObtnResponse obtnResponse = obtnQueryRepository.obtnInfo(obtnRequset);
+
+        return CommonResponse.success(obtnResponse);
+    };
+
+    @PatchMapping("/update")
+    public CommonResponse update(@Validated @RequestBody ObtnRequset obtnRequset) {
+        log.info("/update : {}", obtnRequset);
+        obtnService.update(obtnRequset);
+
+        return CommonResponse.success(obtnRequset);
+    }
 
 }
