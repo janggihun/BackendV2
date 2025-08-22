@@ -26,19 +26,23 @@ public class Obtn { //수주테이블
     @JoinColumn
     private Company company;                                    //회사 pk
 
-
-
     private String obtnNm;                                      //수주번호
-    private Integer mony;                                       //수주금액
     private String obtnMk;                                      //비고
-
 
     private String inputId;                                     //작성자
     private LocalDateTime inputDate;                            //작정날짜
     private String updateId;                                    //변경한사람
     private LocalDateTime updateDate;                           //변경날짜
 
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
+    // 수주의 상태
+    public enum Status {
+        TEMP_SAVE,       //임시저장
+        DONE,           //수주 정보 완료
+        CANCEL,          //  수주취소
+    }
 
 
     public void SettingFirstSave(ObtnRequset obtnRequset) {
@@ -46,7 +50,6 @@ public class Obtn { //수주테이블
         this.obtnDtl = new ArrayList<>();
         this.obtnNm = obtnRequset.getObtnNm();
         this.obtnMk = obtnRequset.getObtnMk();
-        this.mony = obtnRequset.getMony();
         this.inputId = obtnRequset.getUserId();
         this.updateId = obtnRequset.getUserId();
         this.inputDate =LocalDateTime.now();
@@ -68,7 +71,6 @@ public class Obtn { //수주테이블
     public void update(ObtnRequset obtnRequset) {
         this.obtnNm = StringUtils.defaultString(obtnRequset.getObtnNm());
         this.obtnMk = StringUtils.defaultString(obtnRequset.getObtnMk()) ;
-        this.mony = obtnRequset.getMony();
 
         this.updateDate = LocalDateTime.now();
         this.updateId =obtnRequset.getUserId();

@@ -30,13 +30,13 @@ public class QObtn extends EntityPathBase<Obtn> {
 
     public final StringPath inputId = createString("inputId");
 
-    public final NumberPath<Integer> mony = createNumber("mony", Integer.class);
-
     public final ListPath<com.bismo.stellive.api.obtnDtl.ObtnDtl, com.bismo.stellive.api.obtnDtl.QObtnDtl> obtnDtl = this.<com.bismo.stellive.api.obtnDtl.ObtnDtl, com.bismo.stellive.api.obtnDtl.QObtnDtl>createList("obtnDtl", com.bismo.stellive.api.obtnDtl.ObtnDtl.class, com.bismo.stellive.api.obtnDtl.QObtnDtl.class, PathInits.DIRECT2);
 
     public final StringPath obtnMk = createString("obtnMk");
 
     public final StringPath obtnNm = createString("obtnNm");
+
+    public final EnumPath<Obtn.Status> status = createEnum("status", Obtn.Status.class);
 
     public final DateTimePath<java.time.LocalDateTime> updateDate = createDateTime("updateDate", java.time.LocalDateTime.class);
 

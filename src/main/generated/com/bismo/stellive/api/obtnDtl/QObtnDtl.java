@@ -22,11 +22,21 @@ public class QObtnDtl extends EntityPathBase<ObtnDtl> {
 
     public static final QObtnDtl obtnDtl = new QObtnDtl("obtnDtl");
 
+    public final NumberPath<Integer> amt = createNumber("amt", Integer.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final StringPath name = createString("name");
+    public final StringPath index = createString("index");
+
+    public final com.bismo.stellive.api.Item.QItem item;
+
+    public final NumberPath<Integer> mony = createNumber("mony", Integer.class);
 
     public final com.bismo.stellive.api.obtn.QObtn obtn;
+
+    public final EnumPath<ObtnDtl.Status> origin = createEnum("origin", ObtnDtl.Status.class);
+
+    public final EnumPath<ObtnDtl.Status> status = createEnum("status", ObtnDtl.Status.class);
 
     public QObtnDtl(String variable) {
         this(ObtnDtl.class, forVariable(variable), INITS);
@@ -46,6 +56,7 @@ public class QObtnDtl extends EntityPathBase<ObtnDtl> {
 
     public QObtnDtl(Class<? extends ObtnDtl> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
+        this.item = inits.isInitialized("item") ? new com.bismo.stellive.api.Item.QItem(forProperty("item")) : null;
         this.obtn = inits.isInitialized("obtn") ? new com.bismo.stellive.api.obtn.QObtn(forProperty("obtn"), inits.get("obtn")) : null;
     }
 

@@ -37,7 +37,6 @@ public class ObtnQueryRepository {
                         obtn.inputDate,
                         obtn.updateId,
                         obtn.updateDate,
-                        obtn.mony,
                         company.id.as("compId"),
                         company.compNm,
                         company.compAdr
@@ -107,7 +106,6 @@ public class ObtnQueryRepository {
                         obtn.inputDate,
                         obtn.updateId,
                         obtn.updateDate,
-                        obtn.mony,
                         company.id.as("compId"),
                         company.compNm,
                         company.compAdr
