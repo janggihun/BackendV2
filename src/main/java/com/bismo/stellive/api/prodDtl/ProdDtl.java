@@ -1,44 +1,52 @@
-package com.bismo.stellive.api.obtnDtl;
+package com.bismo.stellive.api.prodDtl;
 
-
-import com.bismo.stellive.api.Item.Item;
-import com.bismo.stellive.api.obtn.Obtn;
+import com.bismo.stellive.api.ItemMgnt.ItemMgnt;
+import com.bismo.stellive.api.prodMgnt.ProdMgnt;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
-public class ObtnDtl {
+public class ProdDtl {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //pk
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "obtn_id")
-    private Obtn obtn;
+    @JoinColumn(name = "prod_mgnt")
+    private ProdMgnt prodMgnt;
 
-    //수주디테일 순서
+    //생산물 순서
     private String index;
-
     //    private Integer stx_Yn;         //세금 포함 불포함 ->헤더에서확인
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "item_id")
-    private Item item;       //아이템코드
+    @JoinColumn(name = "item_mgnt")
+    private ItemMgnt itemMgnt;       //아이템코드
 
     //수주금액
     private Integer mony;
     //수주량
     private Integer amt;
 
+    //저장
+    @Column(name = "rgst_id")
+    private Integer rgstId;
+    @Column(name = "rgst_dt")
+    private LocalDateTime rgstDt;
+
+    //업데이트
+    @Column(name = "updt_id")
+    private Integer updtId;
+    @Column(name = "updt_dt")
+    private LocalDateTime updtDt;
     // 현재 위치 상태
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    private Status  origin;     //
-    // enum 정의
+    // status 정의
     public enum Status {
         //1. 자체제작 , 2.발주 // 둘중에 하나로 시작
 
@@ -75,11 +83,5 @@ public class ObtnDtl {
         PRCH_TAX_INVOICE_NEED,        // 세금계산서 진행
         PRCH_TAX_INVOICE_DONE,        // 세금계산서 완료
 
-        /**
-         *    //시작 포인트 , origin은 이중에 한개
-         */
-        OBTN,       //수주
-        ORDER,      //발주
-        OBTN_ORDER, //수주에서 발주
     }
 }

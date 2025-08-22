@@ -1,7 +1,7 @@
-package com.bismo.stellive.api.comp.dto;
+package com.bismo.stellive.api.compMgnt.dto;
 
 
-import com.bismo.stellive.api.comp.Company;
+import com.bismo.stellive.api.compMgnt.Company;
 import com.bismo.stellive.api.obtn.Obtn;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,8 +1,8 @@
-package com.bismo.stellive.api.comp;
+package com.bismo.stellive.api.compMgnt;
 
 
 import com.bismo.stellive.api.common.CommonResponse;
-import com.bismo.stellive.api.comp.dto.CompResponse;
+import com.bismo.stellive.api.compMgnt.dto.CompResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

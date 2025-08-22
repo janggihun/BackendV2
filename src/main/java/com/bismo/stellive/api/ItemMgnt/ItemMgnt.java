@@ -1,4 +1,4 @@
-package com.bismo.stellive.api.Item;
+package com.bismo.stellive.api.ItemMgnt;
 
 
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class Item {
+public class ItemMgnt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //pk

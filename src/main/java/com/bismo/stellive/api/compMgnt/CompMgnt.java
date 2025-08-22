@@ -1,4 +1,4 @@
-package com.bismo.stellive.api.comp;
+package com.bismo.stellive.api.compMgnt;
 
 
 import jakarta.persistence.Entity;
@@ -10,7 +10,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class Company {
+public class CompMgnt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,5 @@
 package com.bismo.stellive.api.obtn.dto;
 
-import com.bismo.stellive.api.comp.Company;
-import com.bismo.stellive.api.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

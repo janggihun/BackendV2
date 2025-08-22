@@ -1,4 +1,4 @@
-package com.bismo.stellive.api.comp;
+package com.bismo.stellive.api.compMgnt;
 
 import com.bismo.stellive.api.obtn.Obtn;
 import org.springframework.data.jpa.repository.JpaRepository;
