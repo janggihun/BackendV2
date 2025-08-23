@@ -35,7 +35,12 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-
+    //모델 메퍼
+    implementation 'org.modelmapper:modelmapper:3.1.1'
+    //매퍼
+//    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+//    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+    
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     // QueryDSL
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'

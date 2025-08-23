@@ -18,7 +18,7 @@ public class UserApiController {
     @PostMapping("/login")
     public CommonResponse login (@Validated @RequestBody UserRequest userRequest , HttpServletRequest request ) {
         HttpSession session = request.getSession(true);
-        session.setAttribute("user",userRequest.getUserId() );
+        session.setAttribute("user", new User());
         log.info("로그인 시 세션 ID: {}", session.getId());
 //        session.setAttribute("user",userRequest.getUserId()); //추후에는 user객체 저장
 
@@ -31,7 +31,8 @@ public class UserApiController {
         if (session != null) {
             log.info("me 세션 ID: {}, user: {}", session.getId(), session.getAttribute("user"));
             if (session.getAttribute("user") != null) {
-                return CommonResponse.success(session.getAttribute("user"));
+                User user = (User) session.getAttribute("user");
+                return CommonResponse.success(user.getUserName());
             }
         }
 
