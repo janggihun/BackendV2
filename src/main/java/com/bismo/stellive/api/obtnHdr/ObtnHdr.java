@@ -54,10 +54,10 @@ public class ObtnHdr {
      * @param obtnHdrRequest
      * @param userDto
      */
-    public void saveSetting(ObtnHdrRequest obtnHdrRequest, UserDto userDto, Integer count) {
+    public void saveSetting(ObtnHdrRequest obtnHdrRequest, UserDto userDto) {
 
         this.compHdr = obtnHdrRequest.getCompHdr();
-        this.obtnNm = "25A-"+ (count+1);   //추후에 당일날짜의 년도를 계산해서 넣기
+
         this.stx =  obtnHdrRequest.getStx();
         this.obtnMk = obtnHdrRequest.getObtnMk();
         this.obtnDt = obtnHdrRequest.getObtnDt();
@@ -69,6 +69,9 @@ public class ObtnHdr {
 
         this.status = Status.FORM_COMPLETED;
 
+    }
+    public void updateObtnNm(){
+        this.obtnNm = "25A-"+  (this.id+1) ; //추후에 당일날짜의 년도를 계산해서 넣기
     }
 
     //*********** 수주의 상태

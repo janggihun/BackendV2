@@ -37,11 +37,10 @@ public class ObtnHdrApiController {
     @PostMapping("/save")
     public CommonResponse save(@Validated @RequestBody ObtnHdrRequest obtnHdrRequest,HttpSession session) {
 
-
         User user = (User) session.getAttribute("user");
 
         UserDto userDto = modelMapper.map(user, UserDto.class);
-        log.info("obtnHdrRequest={}", obtnHdrRequest.getObtnDt());
+//        log.info("obtnHdrRequest={}", obtnHdrRequest.getObtnDt());
         obtnHdrService.save(obtnHdrRequest,userDto);
 
         return CommonResponse.success("저장성공");

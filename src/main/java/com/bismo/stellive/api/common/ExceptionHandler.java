@@ -45,6 +45,13 @@ public class ExceptionHandler {
         return CommonResponse.error("데이터베이스 오류");
     }
 
+    @org.springframework.web.bind.annotation.ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public CommonResponse<String> throwException(IllegalArgumentException e) {
+        log.info("e : {}", e);
+        return CommonResponse.error(e.getMessage());
+    }
+
     //비밀번호 다른 경우
 //    @org.springframework.web.bind.annotation.ExceptionHandler
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)

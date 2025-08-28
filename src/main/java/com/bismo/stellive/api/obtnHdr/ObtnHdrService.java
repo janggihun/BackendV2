@@ -42,14 +42,13 @@ public class ObtnHdrService {
     public void save(ObtnHdrRequest obtnHdrRequest, UserDto userDto) {
         //수주저장
         ObtnHdr obtnHdr = new ObtnHdr();
-        Integer count = Math.toIntExact(obtnHdrJpaRepository.count());
-        obtnHdr.saveSetting(obtnHdrRequest, userDto, count);
+        obtnHdr.saveSetting(obtnHdrRequest, userDto);
         ObtnHdr savedObtnHdr = obtnHdrJpaRepository.save(obtnHdr);
+        savedObtnHdr.updateObtnNm();
 
         //수주상세 저장
         List<ObtnDtlRequest> obtnDtlRequests = obtnHdrRequest.getObtnDtls();
         obtnDtlRequests.forEach(obtnDtlRequest -> {
-
             obtnDtlRequest.setObtnHdr(savedObtnHdr);
         });
         obtnDtlService.save(obtnDtlRequests, userDto);
